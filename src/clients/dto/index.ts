@@ -1,0 +1,6 @@
+export {Address} from './address.dto'
+export {Attachment} from './attachment.dto'
+export {CreateClientDto} from './create-client.dto'
+export {IDDocument} from './idDocument.dto'
+export {Personalizados} from './personalizados.dto'
+export {Pep} from './pep.dto'
