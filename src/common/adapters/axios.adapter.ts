@@ -19,7 +19,6 @@ export class AxiosAdapter implements HttpAdapter {
             const {data} = await this.axioss.get<T>(url, {
                 headers: {
                     'apikey': apikey,
-                    'accept': `application/vnd.mambu.v2+json`
                 }, 
                 params: {
                     'offset': offset,

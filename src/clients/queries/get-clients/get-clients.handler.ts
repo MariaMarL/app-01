@@ -18,6 +18,7 @@ export class GetClientsHandler implements IQueryHandler<GetClientsQuery> {
 
     async execute(query: GetClientsQuery): Promise<any> {
         const {apikey} = getHeaders(this.configService)
+        
         const {paginationDto} = query;
         const clients =  await this.axioss.get<ClientResponse[]>(
             this.configService.get('url'), 

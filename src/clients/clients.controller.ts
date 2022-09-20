@@ -15,18 +15,10 @@ export class ClientsController {
 
 
     @Get()
-    findAll(@RawHeaders() rawHeaders: string[], @Query() paginationDto: PaginationDto): Promise<ClientResponse>{
-
-      const posicion = rawHeaders.indexOf('apikey') + 1;
-
-      if (posicion == 0) {
-        throw new UnauthorizedException('No puede ingresar, falta el apikey')
-      }
-  
-      const apikey = rawHeaders[posicion];
+    findAll(@Query() paginationDto: PaginationDto): Promise<ClientResponse>{
 
       return this.queryBus.execute<GetClientsQuery, ClientResponse>(
-        new GetClientsQuery(apikey, paginationDto),
+        new GetClientsQuery(paginationDto),
       )
     }
 }
