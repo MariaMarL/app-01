@@ -1,6 +1,6 @@
 import { IsUUID, IsNotEmpty } from "class-validator";
 
-export class Personalizados{
+export class _Personalizados{
 
     @IsUUID()
     @IsNotEmpty()

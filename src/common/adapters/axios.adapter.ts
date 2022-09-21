@@ -2,7 +2,6 @@ import { Injectable, InternalServerErrorException, Logger } from '@nestjs/common
 import axios, { AxiosInstance } from 'axios';
 import { PaginationDto } from '../dto/pagination.dto';
 import { HttpAdapter } from '../interfaces/http-adapter.interfaces';
-import { CreateClientDto } from '../../clients/dto/create-client.dto';
 
 @Injectable()
 export class AxiosAdapter implements HttpAdapter {
@@ -30,29 +29,24 @@ export class AxiosAdapter implements HttpAdapter {
             return data;
 
         } catch (error) {
-
             this.logger.error(error);
-            // console.log(error);
             throw new InternalServerErrorException('Something went wrong, check logs')
             
         }
     }
 
-    async post<T>(url: string, apikey: string, idempotencyKey: string, createClientDto: CreateClientDto): Promise<T> {
+    async post<T>(url: string, headers:any, infToCreate: any): Promise<T> {
 
         try {
-            const {data} = await this.axioss.post<T>(url, createClientDto, {
-                headers:{
-                    'apiKey': apikey,
-                    'idempotencyKey': idempotencyKey,
-                    'accept': 'application/vnd.mambu.v2+json'
-                }
+            const {data} = await this.axioss.post<T>(url, infToCreate, {
+                headers:headers
             })
             return data
 
         } catch (error) {
-            this.logger.error('error')
-            console.log(error);
+            this.logger.error(error)
+            // console.log(error);
+            
             throw new InternalServerErrorException('Unexpected error, check Logs');
         }
     }

@@ -1,18 +1,17 @@
 import { IsArray, IsEnum, IsInt, IsNotEmpty, IsOptional, IsString, Min, MinLength, ValidateNested } from "class-validator";
 import { Gender, PreferredLanguage, State } from "../enums";
-import { Address, IDDocument, Personalizados, Pep } from "./";
-
+import { Address, IDDocument, _Personalizados, Pep } from "./";
 
 export class CreateClientDto {
     
     
-    @IsString()
-    @IsOptional()
-    encodedKey:        string;
+    // @IsString()
+    // @IsOptional()
+    // encodedKey:        string;
     
-    @IsString()
-    @IsOptional()
-    id:                string;
+    // @IsString()
+    // @IsOptional()
+    // id:                string;
 
     @IsString()
     @IsOptional()
@@ -123,6 +122,6 @@ export class CreateClientDto {
     @IsString()
     @IsOptional()
     @ValidateNested()
-    _personalizados: Personalizados;
+    _personalizados: _Personalizados;
 
 }
