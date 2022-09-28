@@ -1,9 +1,10 @@
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
-import { AxiosAdapter } from '../../common/adapters/axios.adapter';
+// import { AxiosAdapter } from '../../common/adapters/axios.adapter';
+import { AxiosAdapter } from '../../../common/adapters/axios.adapter';
 import { ConfigService } from '@nestjs/config';
 import { CreateDepositComamnd } from './create-deposit.command';
 import { Logger } from '@nestjs/common';
-import { getHeaders } from '../../common/helpers/headers.helper';
+import { getHeaders } from '../../../common/helpers/headers.helper';
 
 
 @CommandHandler(CreateDepositComamnd)

@@ -1,5 +1,5 @@
 import { IsOptional } from "class-validator";
-import { InterestRateSettings } from "../deposit_response";
+import { InterestRateSettings } from "./InterestRateSettings";
 
 export class OverdraftInterestSettings {
     
