@@ -4,6 +4,7 @@ import { ClientsModule } from './clients/clients.module';
 import { CommonModule } from './common/common.module';
 import { EnvConfig } from './common/config/env.config';
 import { LoansModule } from './loans/loans.module';
+import { DepositsModule } from './deposits/deposits.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { LoansModule } from './loans/loans.module';
   ClientsModule, 
   CommonModule, 
   LoansModule, 
+  DepositsModule
   ],
   controllers: [],
   providers: [],
